@@ -27,13 +27,13 @@ public class Killer
 		afficher(tueur1);*/
 		Tueur listTueur = new Tueur("Ho");
 		nombre++;
-		listTueur.add(new Tueur("martin"));
+		//listTueur.add(new Tueur("martin"));
 		System.out.println(nombre);
-		Inserer("Pascal", tueur, nombre);
+		/*Inserer("Pascal", tueur, nombre);
 		nombre++;
 		for(int i=0; i<nombre; i++){
 			afficher(tueur);
-		}
+		}*/
 		
 	}
 	
