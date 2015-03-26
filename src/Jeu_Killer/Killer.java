@@ -25,8 +25,9 @@ public class Killer
 		tueur2.setContrat(tueur3);
 		
 		afficher(tueur1);*/
-		Tueur tueur = new Tueur("Jo");
+		Tueur listTueur = new Tueur("Ho");
 		nombre++;
+		listTueur.add(new Tueur("martin"));
 		System.out.println(nombre);
 		Inserer("Pascal", tueur, nombre);
 		nombre++;
