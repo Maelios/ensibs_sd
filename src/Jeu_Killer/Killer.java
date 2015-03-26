@@ -11,12 +11,39 @@ package Jeu_Killer;
 public class Killer 
 {
 
+	static Tueur listTueur;
+	static int nombre = 0;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) 
 	{
-		int nombre = 0;
+		
+		
+		listTueur = null;
+		add("maxime");
+		add("maelios");
+		add("doudou");
+		add("martin");
+		if(!isEmpty()){
+			afficher(listTueur);
+		}
+		else{
+			System.out.println("aucun tueur");
+		}
+		
+		/*Tueur listTueur;
+		
+		listTueur=null;
+		listTueur.add("maxime");
+		afficher(listTueur);
+		/*if (!listTueur.isEmpty()){
+			afficher(listTueur);
+		}
+		else{
+			System.out.println("aucun tueur");
+		}*/
+		
 		/*Tueur tueur1 = new Tueur("Vincent");
 		Tueur tueur2 = new Tueur("Cedric");
 		Tueur tueur3 = new Tueur("Fanch", tueur1);
@@ -25,10 +52,10 @@ public class Killer
 		tueur2.setContrat(tueur3);
 		
 		afficher(tueur1);*/
-		Tueur listTueur = new Tueur("Ho");
-		nombre++;
+		//Tueur listTueur = new Tueur("Jo");
+		//nombre++;
 		//listTueur.add(new Tueur("martin"));
-		System.out.println(nombre);
+		//System.out.println(nombre);
 		/*Inserer("Pascal", tueur, nombre);
 		nombre++;
 		for(int i=0; i<nombre; i++){
@@ -37,16 +64,33 @@ public class Killer
 		
 	}
 	
+	public static boolean isEmpty(){
+		return listTueur == null;
+	}
+	
+	public static void add(String nom){
+		if(isEmpty()){
+			listTueur = new Tueur(nom);
+		}
+		else{
+			listTueur = new Tueur(nom, listTueur);
+		}
+		nombre++;
+	}
+	
 	//Affiche le nom du tueur et son contrat, prend en parametre un tueur
 	public static void afficher(Tueur t)
 	{
 		Tueur pTueur = t;
 		Tueur tmp=t.contrat;
-		do{
+		/*do{
+			
+		}while(!(pTueur.equals(t)));*/
+		for(int i=0; i<nombre; i++){
 			System.out.println(t.nom+" doit killer "+t.contrat.nom);
 			t=tmp;
 			tmp=t.contrat;
-		}while(!(pTueur.equals(t)));
+		}
 	}
 	
 	//Insere un tueur dans la liste
