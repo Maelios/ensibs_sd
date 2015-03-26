@@ -63,7 +63,7 @@ public class tp03_p1_ex1
 		st=st.suivant; //Element suivant
 		int nb2 = st.contenu; //Recuperation du deuxieme element
 		st=st.suivant; //Element suivant
-		st=empile(nb1-nb2, st); //Empile le nouvel element en soustrayant nb1 et nb2
+		st=empile(nb2-nb1, st); //Empile le nouvel element en soustrayant nb1 et nb2
 		return st;
 	}
 
@@ -87,7 +87,7 @@ public class tp03_p1_ex1
 		st=st.suivant; //Element suivant
 		int nb2 = st.contenu; //Recuperation du deuxieme element
 		st=st.suivant; //Element suivant
-		st=empile(nb1/nb2, st); //Empile le nouvel element en divisant nb1 et nb2
+		st=empile(nb2/nb1, st); //Empile le nouvel element en divisant nb1 et nb2
 		return st;
 	}
 
@@ -102,6 +102,8 @@ public class tp03_p1_ex1
 	{
 		Pile st=null;
 		int i;
+		String[] tmp =  {"1","2","ADD","4","MUL","6","DIV","2","SUB"};
+		argv=tmp;
 		for(i=0; i<argv.length; i++) 
 		{
 			try 
