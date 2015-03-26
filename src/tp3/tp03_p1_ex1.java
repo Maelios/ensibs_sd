@@ -102,7 +102,7 @@ public class tp03_p1_ex1
 	{
 		Pile st=null;
 		int i;
-		String[] tmp =  {"1","2","ADD","4","MUL","6","DIV","2","SUB"};
+		String[] tmp =  {"1","2","ADD","4","MUL","6","DIV","2","SUB"}; //(((1+2)*4)/6)-2 = 0
 		argv=tmp;
 		for(i=0; i<argv.length; i++) 
 		{
