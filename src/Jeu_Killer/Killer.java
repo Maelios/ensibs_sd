@@ -73,6 +73,7 @@ public class Killer
 		affiche(T1);
 		System.out.println("_________________________");
 		partie(T1);
+
 		
 		
 	}
@@ -163,6 +164,9 @@ public class Killer
 			ctra=ctra.contrat;
 		}
 		int nbJtotal=nbJ;
+		String tab[]=new String[nbJtotal];
+		int tab2[]=new int[nbJtotal];
+		int indice = 0;
 		int alea = 0;
 		while(nbJ!=1){
 			alea = (int)Math.floor(Math.random()*nbJ);
@@ -172,11 +176,22 @@ public class Killer
 				//Si on est arrivé à la position aléatoire on insère notre nouveau tueur
 				if(i==alea){
 					if(tmpTueur.nom!=tmpCtra.nom){
+						//si la tête se fait tuer
+						if(T1==tmpCtra){
+							
+							T1=tmpTueur;
+						}
 						System.out.println(tmpTueur.nom+" a tué "+tmpTueur.contrat.nom);
+						//avant de mourrir on stock dans un tableau le nom du joueur et son nombre de kill
+						tab[indice]=tmpTueur.contrat.nom;
+						tab2[indice]=tmpTueur.contrat.nbKill;
+						indice++;
 						tmpCtra = tmpTueur.contrat;
 						tmpTueur.contrat=tmpCtra.contrat;
 						tmpTueur.nbKill++;
 						nbJ--;
+						
+						
 					}
 				}
 				//sinon on prend le tueur suivant
@@ -185,6 +200,8 @@ public class Killer
 					tmpCtra = tmpCtra.contrat;
 				}
 			}
+			tab[indice]=tmpTueur.nom;
+			tab2[indice]=tmpTueur.nbKill;
 			lastKiller=tmpTueur;
 			
 		}
@@ -192,14 +209,14 @@ public class Killer
 		Tueur bestKiller=T1;
 		//on compare tous les kill de chaque joueur et on garde a chaque fois celui qui a le plus grand nombre de kill
 		for(int z=0; z<nbJtotal; z++){
-			if(T1.nbKill<T1.contrat.nbKill){
-				bestKiller=T1.contrat;
+			//System.out.println("nom : "+tab[z]+" nb kill:"+tab2[z]);
+			if(bestKiller.nbKill<tab2[z]){
+				bestKiller.nom=tab[z];
+				bestKiller.nbKill=tab2[z];
+				bestKiller.contrat=null;	
 			}
-			else{
-				bestKiller=T1;
-			}
-			T1=T1.contrat;
 		}
+		
 		System.out.println("Le meilleur killer est "+bestKiller.nom+", avec "+bestKiller.nbKill+" kill!");
 		
 	}
